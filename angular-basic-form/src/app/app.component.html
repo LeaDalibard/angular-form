@@ -1,16 +1,19 @@
-<form action="">
+
+{{ formName.value | json }}
+
+<form action="" #formName="ngForm">
 
   <fieldset>
     <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" value="John"><br>
+    <input type="text" id="fname" name="fname" ngModel value="John" #fname="ngModel" ><br>
     <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="text" id="lname" name="lname" ngModel value="Doe" #lname="ngModel"><br><br>
     <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" value="johndoe@mail.com"><br><br>
+    <input type="email" id="email" name="email" ngModel value="johndoe@mail.com" #email="ngModel"><br><br>
     <label for="phone">Phone :</label><br>
-    <input type="tel" id="phone" name="phone"><br><br>
+    <input type="tel" id="phone" name="phone" ngModel #phone="ngModel"><br><br>
     <label for="language">Your favourite languages : </label>
-    <select name="language" id="language">
+    <select name="language" id="language" ngModel #language="ngModel">
       <option *ngFor="let language of languages" value="{{ language.name }}">{{ language.name }}</option>
     </select><br><br>
     <input type="submit" value="Submit">
