@@ -32,4 +32,25 @@ export class Friend {
   get favouriteLanguage(): string| null {
     return this._favouriteLanguage;
   }
+
+
+  set firstName(value: string | null) {
+    this._firstName = value;
+  }
+
+  set lastName(value: string | null) {
+    this._lastName = value;
+  }
+
+  set email(value: string | null) {
+    this._email = value;
+  }
+
+  set phoneNumber(value: string | null) {
+    this._phoneNumber = value;
+  }
+
+  set favouriteLanguage(value: string | null) {
+    this._favouriteLanguage = value;
+  }
 }
