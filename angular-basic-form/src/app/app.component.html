@@ -11,12 +11,7 @@
     <input type="tel" id="phone" name="phone"><br><br>
     <label for="language">Your favourite languages : </label>
     <select name="language" id="language">
-      <option value="html">Html</option>
-      <option value="css">CSS</option>
-      <option value="js">JS</option>
-      <option value="php">PHP</option>
-      <option value="c">C#</option>
-      <option value="python">Python</option>
+      <option *ngFor="let language of languages" value="{{ language.name }}">{{ language.name }}</option>
     </select><br><br>
     <input type="submit" value="Submit">
   </fieldset>
