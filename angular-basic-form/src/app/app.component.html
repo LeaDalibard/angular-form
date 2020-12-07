@@ -1,25 +1,29 @@
 {{ friendModel | json }}
+<div class="container">
+  <form action="" #formName="ngForm">
 
-<form action="" #formName="ngForm">
+    <fieldset>
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" [(ngModel)]="friendModel.firstName" value="John" #fname="ngModel"
+             pattern="[A-Za-z]" required [class.alert-danger]="fname.invalid && fname.touched"><br>
 
-  <fieldset>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" [(ngModel)]="friendModel.firstName" value="John" #fname="ngModel"
-           required [class.alert-danger]="fname.invalid && fname.touched"><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" [(ngModel)]="friendModel.lastName" value="Doe" #lname="ngModel"
+             pattern="[A-Za-z]" required [class.alert-danger]="lname.invalid && lname.touched"><br><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" [(ngModel)]="friendModel.email" value="johndoe@mail.com"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+             #email="ngModel" required [class.alert-danger]="email.invalid && email.touched"><br><br>
+      <label for="phone">Phone :</label><br>
+      <input type="tel" id="phone" name="phone" [(ngModel)]="friendModel.phoneNumber" #phone="ngModel"
+             pattern="phonePattern" required [class.alert-danger]="phone.invalid && phone.touched"><br><br>
+      <label for="language">Your favourite languages : </label>
+      <select name="language" id="language" [(ngModel)]="friendModel.favouriteLanguage" #language="ngModel" required
+              [class.alert-danger]="language.invalid && language.touched">>
+        <option *ngFor="let language of languages" value="{{ language.name }}">{{ language.name }}</option>
+      </select><br><br>
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </fieldset>
 
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" [(ngModel)]="friendModel.lastName" value="Doe" #lname="ngModel"
-           required [class.alert-danger]="lname.invalid && lname.touched"><br><br>
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" [(ngModel)]="friendModel.email" value="johndoe@mail.com"
-           #email="ngModel" required [class.alert-danger]="email.invalid && email.touched"><br><br>
-    <label for="phone">Phone :</label><br>
-    <input type="tel" id="phone" name="phone" [(ngModel)]="friendModel.phoneNumber" #phone="ngModel" required [class.alert-danger]="phone.invalid && phone.touched"><br><br>
-    <label for="language">Your favourite languages : </label>
-    <select name="language" id="language" [(ngModel)]="friendModel.favouriteLanguage" #language="ngModel" required [class.alert-danger]="language.invalid && language.touched">>
-      <option *ngFor="let language of languages" value="{{ language.name }}">{{ language.name }}</option>
-    </select><br><br>
-    <input type="submit" value="Submit">
-  </fieldset>
-
-</form>
+  </form>
+</div>
