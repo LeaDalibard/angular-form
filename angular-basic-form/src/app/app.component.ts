@@ -13,7 +13,7 @@ export class AppComponent {
   phonePattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"+"^(?:0|\(?\+32\)?\s?|0032\s?)[1-79](?:[\.\-\s]?\d\d){4}$";
 
 
-  friendModel = new Friend(null, null, null, null, null);
+  friendModel = new Friend(" ", " ", " ", " ", " ");
 
 }
 
