@@ -5,14 +5,7 @@
 
   <fieldset>
     <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" [(ngModel)]="friendModel._firstName" value="John" #fname="ngModel" required ><br>
-
-    <div *ngIf="fname.invalid && (fname.dirty || fname.touched)"
-         class="alert alert-danger">
-      <div *ngIf="fname.errors.required" >
-        Name is required.
-      </div>
-    </div>
+    <input type="text" id="fname" name="fname" [(ngModel)]="friendModel._firstName" value="John" #fname="ngModel" required [class.alert-danger]="fname.invalid" ><br>
 
     <label for="lname">Last name:</label><br>
     <input type="text" id="lname" name="lname" [(ngModel)]="friendModel._lastName" value="Doe" #lname="ngModel" required ><br><br>

@@ -1,11 +1,11 @@
 export class Friend {
-  private _firstName: string;
-  private _lastName: string;
-  private _email: string;
-  private _phoneNumber: string;
-  private _favouriteLanguage: string;
+  private _firstName: string | null;
+  private _lastName: string | null;
+  private _email: string | null;
+  private _phoneNumber: string| null;
+  private _favouriteLanguage: string| null;
 
-  constructor(fname: string, lname: string, email: string, phoneNumber: string, favouriteLanguage: string) {
+  constructor(fname: string| null, lname: string| null, email: string| null, phoneNumber: string| null, favouriteLanguage: string| null) {
     this._firstName = fname;
     this._lastName = lname;
     this._email = email;
@@ -13,23 +13,23 @@ export class Friend {
     this._favouriteLanguage = favouriteLanguage;
   }
 
-  get firstName(): string {
+  get firstName(): string | null {
     return this._firstName;
   }
 
-  get lastName(): string {
+  get lastName(): string | null {
     return this._lastName;
   }
 
-  get email(): string {
+  get email(): string | null{
     return this._email;
   }
 
-  get phoneNumber(): string {
+  get phoneNumber(): string| null {
     return this._phoneNumber;
   }
 
-  get favouriteLanguage(): string {
+  get favouriteLanguage(): string| null {
     return this._favouriteLanguage;
   }
 }
