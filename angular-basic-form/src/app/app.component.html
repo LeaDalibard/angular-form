@@ -1,6 +1,9 @@
 {{ friendModel | json }}
+
 <div class="container">
-  <form action="" #friendForm="ngForm">
+
+  <form action="" novalidate #friendForm="ngForm">
+
     <fieldset>
 
       <label for="fname">First name:</label><br>
@@ -51,7 +54,7 @@
 
       <label for="phone">Phone :</label><br>
       <input type="tel" id="phone" name="phone" [(ngModel)]="friendModel.phoneNumber" #phone="ngModel"
-             pattern="phonePattern" required ><br><br>
+             pattern="^(?:0|\(?\+32\)?\s?|0032\s?)[1-79](?:[\.\-\s]?\d\d){4}$" required><br><br>
 
       <div *ngIf="phone.invalid && (phone.dirty ||phone.touched)"
            class="alert alert-danger">
@@ -69,7 +72,7 @@
               [class.alert-danger]="language.invalid && language.touched">>
         <option *ngFor="let language of languages" value="{{ language.name }}">{{ language.name }}</option>
       </select><br><br>
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" [disabled]="friendForm.form.invalid" class="btn btn-primary" value="Submit">
     </fieldset>
   </form>
 </div>
