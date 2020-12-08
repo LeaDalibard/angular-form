@@ -1,14 +1,12 @@
-import {HttpClient} from "@angular/common/http";
-
 export class Friend {
   private _firstName: string ;
   private _lastName: string ;
   private _email: string;
   private _phoneNumber: string;
   private _favouriteLanguage: string;
-  private http: HttpClient;
 
-  constructor(fname: string, lname: string, email: string, phoneNumber: string, favouriteLanguage: string, http: HttpClient) {
+
+  constructor( fname: string, lname: string, email: string, phoneNumber: string, favouriteLanguage: string) {
     this._firstName = fname;
     this._lastName = lname;
     this._email = email;
