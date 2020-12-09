@@ -22,8 +22,10 @@ export class AppComponent {
 
   public onSubmit(): void{
     const observable = this.addFriendService.addFriend(this.friendModel);
-    observable.subscribe(data => console.log('it works'), error => console.error('it did not work'));
+    observable.subscribe((data: string) => console.log('it works'), (error: string) => console.error('it did not work'));
   }
+
+
 
 }
 

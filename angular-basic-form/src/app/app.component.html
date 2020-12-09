@@ -70,7 +70,7 @@
       <label for="language">Your favourite languages : </label>
       <select name="language" id="language" [(ngModel)]="friendModel.favouriteLanguage" #language="ngModel" required
               [class.alert-danger]="language.invalid && language.touched">>
-        <option *ngFor="let language of languages" value="{{ language.name }}">{{ language.name }}</option>
+        <option *ngFor="let language of languages" value="{{ language }}">{{ language }}</option>
       </select><br><br>
       <input type="submit" [disabled]="friendForm.form.invalid" class="btn btn-primary" value="Submit">
     </fieldset>
