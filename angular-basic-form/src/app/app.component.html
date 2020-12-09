@@ -2,7 +2,7 @@
 
 <div class="container">
 
-  <form  #friendForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form #friendForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
 
     <fieldset>
 
@@ -75,4 +75,14 @@
       <input type="submit" [disabled]="friendForm.form.invalid" class="btn btn-primary" value="Submit">
     </fieldset>
   </form>
+
+  <h2>Friends :</h2>
+  <div *ngFor="let friend of allFriends">
+    <h3>{{ friend._firstName }} {{ friend._lastName }}</h3>
+    <p>Email :   {{ friend._email }}</p>
+    <p>Phone number :   {{ friend._phoneNumber }}</p>
+    <p>Favourite Language : {{ friend._favouriteLanguage }}</p>
+  </div>
+
 </div>
+

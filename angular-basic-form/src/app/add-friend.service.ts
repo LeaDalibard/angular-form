@@ -9,12 +9,13 @@ import {Friend} from './friend';
 
 export class AddFriendService {
 
-  private url = 'http://localhost:9100/';
+  private url: string;
 
   constructor(private http: HttpClient) {
   }
 
   public addFriend(friend: Friend): any {
+    this.url = 'http://localhost:9100/addFriend';
     return this.http.post(this.url, friend);
   }
 }

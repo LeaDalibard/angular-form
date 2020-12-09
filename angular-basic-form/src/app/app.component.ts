@@ -15,17 +15,29 @@ export class AppComponent {
   friendModel = new Friend('', '', '', '', '');
 
   private addFriendService: AddFriendService;
+  public allFriends: any;
 
   constructor(addFriendService: AddFriendService) {
     this.addFriendService = addFriendService;
   }
 
-  public onSubmit(): void{
+  public onSubmit(): any {
     const observable = this.addFriendService.addFriend(this.friendModel);
-    observable.subscribe((data: string) => console.log('it works'), (error: string) => console.error('it did not work'));
+    observable.subscribe((data: string) => this.displayFriend('http://localhost:9100/allFriends'), (error: string) => console.error('it did not work'));
+    console.log(this.allFriends);
   }
 
 
+  public async displayFriend(url: string): Promise<any> {
+    const response = await fetch(url, {
+      method: 'GET', headers: {'Content-Type': 'application/json'}
+    });
+    return this.allFriends = await response.json();
+  }
+
+  public ngOnInit(): any {
+    this.displayFriend('http://localhost:9100/allFriends');
+  }
 
 }
 
